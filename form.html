@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Access Inquiry Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8e8e8; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            perspective: 1200px; 
+        }
+        .paper {
+            width: 800px;
+            max-width: 90%;
+            padding: 70px 90px;
+            background: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4); /* Deep shadow for held paper effect */
+            transform: rotateX(12deg) rotateY(-8deg) rotateZ(-3deg); /* Tilted like in the photo */
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .paper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(230,230,230,0.7) 100%);
+            pointer-events: none; /* Allows interaction with form */
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+        .points {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+        form {
+            display: grid;
+            gap: 25px;
+            position: relative; /* Above overlay */
+            z-index: 1;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .group {
+            display: grid;
+            gap: 12px;
+        }
+        .gender .group {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .languages .group {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .level .group {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        button {
+            background-color: #444;
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            justify-self: center;
+            width: 220px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        button:hover {
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="paper">
+        <h2>Student Access Inquiry</h2>
+        <p class="points">Generate the following student enquiry form/15pts</p>
+        
+        <form>
+            <div>
+                <label>First Name</label>
+                <input type="text" required>
+            </div>
+            
+            <div>
+                <label>Last Name</label>
+                <input type="text" required>
+            </div>
+            
+            <div>
+                <label>Email</label>
+                <input type="email" required>
+            </div>
+            
+            <div class="gender">
+                <label>Gender</label>
+                <div class="group">
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                </div>
+            </div>
+            
+            <div class="languages">
+                <label>Spoken Languages</label>
+                <div class="group">
+                    <label><input type="checkbox" value="kinyarwanda"> Kinyarwanda</label>
+                    <label><input type="checkbox" value="swahili"> Swahili</label>
+                    <label><input type="checkbox" value="english"> English</label>
+                    <label><input type="checkbox" value="french"> French</label>
+                </div>
+            </div>
+            
+            <div class="level">
+                <label>Level</label>
+                <div class="group">
+                    <label><input type="radio" name="level" value="senior1"> Senior 1</label>
+                  
+                </div>
+            </div>
+            
+            <div>
+                <label>Password</label>
+                <input type="password" required>
+            </div>
+            
+            <div>
+                <label>Request</label>
+                <input type="text">
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
